@@ -39,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
         if (len(arg) == 0):
             print ("** class name missing **")
 
-        elif (arg != "BaseModel"):
+        elif (arg not in objs):
             print ("** class doesn't exist **")
 
         else:

@@ -7,6 +7,8 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 
+objs = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+
 class HBNBCommand(cmd.Cmd):
     """
     custom command line interpreter
@@ -56,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         if (len(line) == 0):
             print("** class name missing **")
 
-        elif (args[0] != "BaseModel"):
+        elif (args[0] not in objs):
             print("** class doesn't exist **")
 
         elif len(args) < 2:
@@ -81,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
         if (len(args) == 0):
             print("** class name missing **")
 
-        elif args[0] != "BaseModel":
+        elif args[0] not in objs:
             print("** class doesn't exist **")
 
         elif len(args) < 2:
@@ -108,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
 
         else:
             args = arg.split()
-            if args[0] != "BaseModel":
+            if args[0] not in objs:
                 print("** class doesn't exist **")
                 return False
             else:
@@ -125,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         if len(arg) == 0:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in objs:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
